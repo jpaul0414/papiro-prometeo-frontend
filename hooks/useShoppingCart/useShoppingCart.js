@@ -40,7 +40,7 @@ const useShoppingCart = () => {
             5
           );
           setCartItems([]);
-          router.push("/orders");
+          router.push("/");
         })
         .catch((error) => {
           console.log(error);
