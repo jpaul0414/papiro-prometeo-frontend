@@ -14,7 +14,7 @@ import {
   MobileIcon,
   ShoppingBagButton,
   ShoppingBagLabel,
-} from "./NavBar.elements";
+} from "./Navbar.elements";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
