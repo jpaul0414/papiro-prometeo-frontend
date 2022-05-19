@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { ThemeProvider } from "styled-components";
 import NavBar from "../components/Navbar/NavBar";
 import { GlobalStyles } from "../styles/globalStyles";
-import { themes } from "../lib/themes/Themes";
+import { themes } from "../lib/Themes/Themes";
 import ShoppingCartProvider from "../contexts/ShoppingCart/ShoppingCart";
 import CartDrawer from "../components/CartDrawer/CartDrawer";
 import BooksContextProvider from "../contexts/Books/BooksContext";
