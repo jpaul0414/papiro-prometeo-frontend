@@ -8,7 +8,7 @@ export const CardContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 5px;
+  border-radius: ${({ theme }) => theme.borderRadius.sm};
   box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.2);
   overflow: hidden;
 `;
@@ -29,9 +29,9 @@ export const CardBody = styled.div`
 `;
 
 export const BookTitle = styled.h2`
-  font-size: 16px;
+  font-size: ${({ theme }) => theme.fontSizes.sm};
   margin: 0;
-  color: #bababa;
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 export const InfoContainer = styled.div`
@@ -47,11 +47,18 @@ export const AddToCartButton = styled.button`
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 2px;
-  background-color: #bababa;
-  color: #fff;
-  font-size: 16px;
+  background-color: ${({ theme }) => theme.colors.red};
+  color: ${({ theme }) => theme.colors.white};
+  font-size: ${({ theme }) => theme.fontSizes.sm};
   outline: none;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    opacity: 0.85;
+  }
 `;
 
 export const PriceLabel = styled.p`

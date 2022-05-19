@@ -4,6 +4,9 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
+  images: {
+    domains: [`papiro-prometeo-jp.s3.us-east-2.amazonaws.com`],
+  },
 };
 
 module.exports = nextConfig;

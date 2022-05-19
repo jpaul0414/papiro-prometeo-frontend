@@ -3,12 +3,12 @@ import Container from "../components/Container/Container";
 import useBooks from "../hooks/useBooks/useBooks";
 import Head from "next/head";
 
-export default function Home() {
+export default function Store() {
   const { books, loading } = useBooks();
   return (
     <>
       <Head>
-        <title>Inicio | Papiro Prometeo</title>
+        <title>Tienda | Papiro Prometeo</title>
         <meta
           name="description"
           content="Tienda de libros Papiro Prometeo"

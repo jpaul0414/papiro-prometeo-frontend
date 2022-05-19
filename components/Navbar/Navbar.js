@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
+import { ShoppingCartContext } from "../../contexts/ShoppingCart/ShoppingCart";
 import {
   Nav,
   LogoContainer,
@@ -11,10 +12,14 @@ import {
   MenuItem,
   ShoppingBag,
   MobileIcon,
+  ShoppingBagButton,
+  ShoppingBagLabel,
 } from "./NavBar.elements";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { showDrawer, setShowDrawer, cartItems } =
+    useContext(ShoppingCartContext);
   const handleClick = () => {
     if (window.innerWidth < 960) {
       setIsOpen(!isOpen);
@@ -25,12 +30,14 @@ const NavBar = () => {
     <Nav>
       <NavbarContainer>
         <LogoContainer>
-          <Image
-            src="/img/logo_udemedellin.png"
-            width={483}
-            height={150}
-            alt="Logo UdeM"
-          ></Image>
+          <Link href={"/"} passHref>
+            <Image
+              src="/img/logo_udemedellin.png"
+              width={483}
+              height={150}
+              alt="Logo UdeM"
+            ></Image>
+          </Link>
         </LogoContainer>
         <MobileIcon onClick={handleClick}>
           {isOpen ? <FaTimes /> : <FaBars />}
@@ -41,10 +48,20 @@ const NavBar = () => {
               <Link href={"/"}>Inicio</Link>
             </MenuItem>
             <MenuItem>
-              <Link href={"/tienda"}>Tienda</Link>
+              <Link href={"/store"}>Tienda</Link>
+            </MenuItem>
+            <MenuItem>
+              <Link href={"/auth/login"}>Ingresa</Link>
             </MenuItem>
           </Menu>
-          <ShoppingBag></ShoppingBag>
+          <ShoppingBagButton
+            onClick={() => {
+              setShowDrawer(!showDrawer);
+            }}
+          >
+            <ShoppingBagLabel>{cartItems.length}</ShoppingBagLabel>
+            <ShoppingBag></ShoppingBag>
+          </ShoppingBagButton>
         </MenuWrapper>
       </NavbarContainer>
     </Nav>
